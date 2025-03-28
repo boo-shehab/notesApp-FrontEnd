@@ -5,9 +5,10 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 interface NoteData {
-    id?: string; 
+    id: string;
     title: string;
     contents: string;
+    created: string;
 }
 
 interface NotesFormProps {
