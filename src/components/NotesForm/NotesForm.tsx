@@ -4,38 +4,47 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
-const NotesForm = ({ isOpen, data, onClose }) => {
+interface NoteData {
+    id?: string; 
+    title: string;
+    contents: string;
+}
+
+interface NotesFormProps {
+    isOpen: boolean;
+    data: NoteData | null;
+    onClose: (note?: NoteData) => void; 
+}
+
+const NotesForm = ({ isOpen, data, onClose }: NotesFormProps) => {
     const [title, setTitle] = useState("");
     const [contents, setContents] = useState("");
 
-    // When modal is closed, reset fields
     const handleClose = () => {
         setTitle("");
         setContents("");
-        onClose();
+        onClose(); 
     };
 
     const handleSubmit = async () => {
         try {
-            if (data) {
+            if (data?.id) {
                 const response = await axios.put(`${API_URL}/${data.id}`, { title, contents }, {
                     headers: { "Content-Type": "application/json" }
                 });
                 console.log("Updated Note:", response.data);
                 onClose(response.data); 
             } else {
-                
                 const response = await axios.post(API_URL, { title, contents }, {
                     headers: { "Content-Type": "application/json" }
                 });
                 console.log("New Note:", response.data);
-                onClose(response.data);
+                onClose(response.data); 
             }
         } catch (error) {
             console.error("Error saving note:", error);
         }
     };
-
 
     useEffect(() => {
         if (data) {
