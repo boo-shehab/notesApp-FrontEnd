@@ -1,0 +1,65 @@
+.main {
+    background-color: rgb(231, 231, 231);
+    height: 100vh;
+    padding-top: 30px;
+}
+
+.button { 
+    display: block;
+    margin: 0 auto;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(0, 219, 164);
+    box-shadow: 1px 1px 1px 1px rgb(1, 112, 84);
+}
+
+.cardsContainer {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgb(175, 175, 175);
+    overflow: hidden;
+}
+
+.cardData {
+    padding: 20px;
+}
+
+.cardDate {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    
+}
+
+.cardTitle {
+    text-align: center;
+}
+
+.actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.actions button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.actions button.edit {
+    background-color: #F4A62A;
+}
+
+.actions button.delete {
+    background-color: #FA3F19;
+}

@@ -1,27 +1,12 @@
-import { useEffect } from 'react'
-import './App.css'
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
-  useEffect(() => {
-    const fetchNotes = async() => {
-      try{
-        const response = await fetch('https://notesapp-production-7ea8.up.railway.app/notes')
-        if(!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-      const json = await response.json();
-      console.log(json);
-      }catch (error) {
-        console.log(error);
-        
-      }
-    }
-    fetchNotes()
-  }, [])
-  return (
-    <>
-    </>
-  )
+
+    return (
+        <>
+            <HomePage />
+        </>
+    );
 }
 
-export default App
+export default App;

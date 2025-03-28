@@ -1,0 +1,43 @@
+.popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.card {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 620px;
+    text-align: center;
+    transform: scale(0.8);
+}
+
+
+.actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.actions button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.actions button.cancel {
+    background-color: #F4A62A;
+}
+
+.actions button.delete {
+    background-color: #FA3F19;
+}
