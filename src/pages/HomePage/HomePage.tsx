@@ -21,7 +21,13 @@ const HomePage = () => {
     useEffect(() => {
         axios
             .get(import.meta.env.VITE_BACKEND_URL)
-            .then((response) => setNotes(response.data))
+            .then((response) => {
+                const notesWithCreated = response.data.map((note: Note) => ({
+                    ...note,
+                    created: new Date().toISOString(),
+                }));
+                setNotes(notesWithCreated);
+            })
             .catch((error) => console.error(error));
     }, []);
 
